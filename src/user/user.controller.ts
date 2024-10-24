@@ -25,7 +25,7 @@ export class UserController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findById(@Param('id') id: string) {
     return this.userService.findById(id);
   }
 
@@ -37,5 +37,13 @@ export class UserController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.userService.remove(id);
+  }
+  @Post('findOne')
+  findOne(@Body() user: User) {
+    return this.userService.findOne(user);
+  }
+  @Post('login')
+  login(@Body() user: User) {
+    return this.userService.login(user);
   }
 }

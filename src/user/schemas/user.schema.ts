@@ -6,13 +6,13 @@ import { Asset } from './asset.schema';
 export class User {
   // 微信或抖音提供的用户唯一标识。
   @Prop({ type: String, required: true })
-  user_id: string;
+  userId: string;
   // 用户昵称，从平台获取。
   @Prop({ type: String })
-  nickname: string;
+  nickName: string;
   // 用户头像URL，从平台获取。
   @Prop({ type: String })
-  avatar_url: string;
+  avatarUrl: string;
   // 用户性别，从平台获取。
   @Prop({ type: String })
   gender: string;

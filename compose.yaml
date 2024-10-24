@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  nestjs-app:
+    image: node:20
+    working_dir: /Users/chenkj/cocos/sortilege-service/
+    volumes:
+      - ./:/Users/chenkj/cocos/sortilege-service/
+    environment:
+      NODE_ENV: production # 根据实际情况调整环境变量
+    ports: # use if it is necessary to expose the container to the host machine
+      - "3000:3000"
+    command: npm i & npm start # 启动项目的命令
+    depends_on:
+      - mongo
+    restart: always
+  mongo:
+    image: mongo:latest
+    restart: always
+    environment:
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: your_password
+      MONGO_INITDB_DATABASE: sortilege
+    ports:
+      - "27017:27017"
+    volumes:
+      - sortilege:/data/db
+volumes:
+  sortilege:
