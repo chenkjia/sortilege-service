@@ -9,7 +9,7 @@ services:
       NODE_ENV: production # 根据实际情况调整环境变量
     ports: # use if it is necessary to expose the container to the host machine
       - "3000:3000"
-    command: npm i & npm start # 启动项目的命令
+    command: npm i && npm start # 启动项目的命令
     depends_on:
       - mongo
     restart: always

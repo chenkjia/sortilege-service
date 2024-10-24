@@ -6,6 +6,10 @@
 # cert
 /cert
 
+# compose
+compose.yaml
+
+
 # Logs
 logs
 *.log
