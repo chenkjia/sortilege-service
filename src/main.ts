@@ -10,7 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, { httpsOptions });
   // const app = await NestFactory.create(AppModule);
   app.enableCors(); // 允许跨域
-  await app.listen(3000);
+  await app.listen(443);
 }
 bootstrap();
 
