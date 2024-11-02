@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { responseMiddleware } from './middlewares/response.middleware';
 import * as fs from 'fs';
 
 async function bootstrap() {
@@ -9,6 +10,7 @@ async function bootstrap() {
   };
   const app = await NestFactory.create(AppModule, { httpsOptions });
   // const app = await NestFactory.create(AppModule);
+  app.use(responseMiddleware);
   app.enableCors(); // 允许跨域
   await app.listen(443);
 }
