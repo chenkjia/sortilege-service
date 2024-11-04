@@ -5,8 +5,8 @@ import * as fs from 'fs';
 
 async function bootstrap() {
   const httpsOptions = {
-    key: fs.readFileSync('cert/key.pem'),
-    cert: fs.readFileSync('cert/cert.pem'),
+    key: fs.readFileSync(process.env.CERT_KEY),
+    cert: fs.readFileSync(process.env.CERT_CERT),
   };
   const app = await NestFactory.create(AppModule, { httpsOptions });
   // const app = await NestFactory.create(AppModule);
